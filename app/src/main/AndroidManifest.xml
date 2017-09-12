@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="hugheshl.easyfeelin"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/turnip"
+        android:roundIcon="@drawable/turnip"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".AssignListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".AssignPagerActivity"
+            android:parentActivityName=".AssignListActivity">
+        </activity>
+        <activity android:name=".LogActivity"
+                  android:parentActivityName=".AssignPagerActivity">
+        </activity>
+        <activity android:name=".SettingsActivity"
+                  android:parentActivityName=".AssignPagerActivity">
+        </activity>
+    </application>
+</manifest>

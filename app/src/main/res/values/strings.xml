@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">EasyFeelin</string>
+    <string name="assign_title_hint">Enter any comments here</string>
+    <string name="assign_title_label">Details</string>
+    <string name="assign_details_label">Date:</string>
+    <string name="assign_completed_label">Completed</string>
+    <string name="date_picker_title">Date:</string>
+    <string name="new_assign">New Entry</string>
+    <string name="delete_assign">Delete Entry</string>
+    <string name="toast_delete_assign">Entry Deleted</string>
+    <string name="settings_label">Settings</string>
+    <string name="default_label">Default</string>
+    <string name="theme_label">Theme</string>
+    <string name="default_time_label">Default Timer Length</string>
+    <string name="order_by_label">Order Entries By</string>
+    <string name="change_ringtone">Change Alarm Ringtone</string>
+    <string name="return_label">Back to Work</string>
+</resources>
