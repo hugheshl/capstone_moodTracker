@@ -142,7 +142,7 @@ public class AssignFragment extends Fragment {
         face1ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //setMood();
+                mAssign.setMood(1);
                 Toast toast = Toast.makeText(getActivity(), "[Placeholder] I'm Great!", Toast.LENGTH_SHORT);
                 toast.show();
                 Intent intent = LogActivity.newIntent(getActivity(), mAssign.getId());
@@ -154,7 +154,7 @@ public class AssignFragment extends Fragment {
         face2ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //setMood();
+                mAssign.setMood(2);
                 Toast toast = Toast.makeText(getActivity(), "[Placeholder] I'm Good!", Toast.LENGTH_SHORT);
                 toast.show();
                 Intent intent = LogActivity.newIntent(getActivity(), mAssign.getId());
@@ -166,7 +166,7 @@ public class AssignFragment extends Fragment {
         face3ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //setMood();
+                mAssign.setMood(3);
                 Toast toast = Toast.makeText(getActivity(), "[Placeholder] I'm Ok", Toast.LENGTH_SHORT);
                 toast.show();
                 Intent intent = LogActivity.newIntent(getActivity(), mAssign.getId());
@@ -178,7 +178,7 @@ public class AssignFragment extends Fragment {
         face4ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //setMood();
+                mAssign.setMood(4);
                 Toast toast = Toast.makeText(getActivity(), "[Placeholder] I'm not good.", Toast.LENGTH_SHORT);
                 toast.show();
                 Intent intent = LogActivity.newIntent(getActivity(), mAssign.getId());
@@ -190,7 +190,7 @@ public class AssignFragment extends Fragment {
         face5ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //setMood();
+                mAssign.setMood(5);
                 Toast toast = Toast.makeText(getActivity(), "[Placeholder] Everything is shit!", Toast.LENGTH_SHORT);
                 toast.show();
                 Intent intent = LogActivity.newIntent(getActivity(), mAssign.getId());

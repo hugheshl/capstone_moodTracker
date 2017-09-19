@@ -8,9 +8,8 @@ public class Assign {
     private UUID mId;
     private String mTitle;
     private Date mDueDate;
-    private boolean mCompleted;
-    private long mtotalTime;
     private String mLogs;
+    private int mMood;
 
     public Assign() {
         this(UUID.randomUUID());
@@ -41,27 +40,19 @@ public class Assign {
         mDueDate = date;
     }
 
-    public boolean isCompleted() {
-        return mCompleted;
-    }
-
-    public void setCompleted(boolean completed) {
-        mCompleted = completed;
-    }
-
-    public long getTotalTime() {
-        return mtotalTime;
-    }
-
-    public void setTotalTime(long totalTime) {
-        mtotalTime = totalTime;
-    }
-
     public String getLogs() {
         return mLogs;
     }
 
     public void setLogs(String logs) {
         mLogs = logs;
+    }
+
+    public int getMood() {
+        return mMood;
+    }
+
+    public void setMood(int mood) {
+        mMood = mood;
     }
 }

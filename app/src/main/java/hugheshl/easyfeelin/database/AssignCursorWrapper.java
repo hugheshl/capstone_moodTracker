@@ -19,16 +19,14 @@ public class AssignCursorWrapper extends CursorWrapper {
         String uuidString = getString(getColumnIndex(AssignTable.Cols.UUID));
         String title = getString(getColumnIndex(AssignTable.Cols.TITLE));
         long Date = getLong(getColumnIndex(AssignTable.Cols.DATE));
-        int isCompleted = getInt(getColumnIndex(AssignTable.Cols.COMPLETED));
-        long totalTime = getLong(getColumnIndex(AssignTable.Cols.TOTALTIME));
         String logs = getString(getColumnIndex(AssignTable.Cols.LOGS));
+        int mood = getInt(getColumnIndex(AssignTable.Cols.MOOD));
 
         Assign assign = new Assign(UUID.fromString(uuidString));
         assign.setTitle(title);
         assign.setDate(new Date(Date));
-        assign.setCompleted(isCompleted != 0);
-        assign.setTotalTime(totalTime);
         assign.setLogs(logs);
+        assign.setMood(mood);
 
         return assign;
     }

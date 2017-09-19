@@ -103,9 +103,8 @@ public class AssignLab {
         values.put(UUID, assign.getId().toString());
         values.put(TITLE, assign.getTitle());
         values.put(DATE, assign.getDate().getTime());
-        values.put(COMPLETED, assign.isCompleted() ? 1 : 0);
-        values.put(TOTALTIME, assign.getTotalTime());
         values.put(LOGS, assign.getLogs());
+        values.put(MOOD, assign.getMood());
         return values;
     }
 

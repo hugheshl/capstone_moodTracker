@@ -34,8 +34,8 @@ public class AssignListFragment extends Fragment {
         // ******************************* Dummy Data for Demonstration *****************************
         for(int i = 0; i < 14; i++) {
             Assign assign = new Assign();
-            assign.setTitle("Entry" + i);
-                assign.setCompleted(true);
+            assign.setTitle("Today was strange... No. " + i);
+                assign.setMood(1);
             AssignLab.get(getActivity()).addAssign(assign);
         }
         // ******************************* Dummy Data for Demonstration *****************************
@@ -126,7 +126,7 @@ public class AssignListFragment extends Fragment {
         private TextView mTitleTextView;
         private TextView mTimeTextView;
         private TextView mDateTextView;
-        private ImageView mCompletedImageView;
+        private ImageView mMoodImageView;
 
         public AssignHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.list_item_assign, parent, false));
@@ -135,15 +135,26 @@ public class AssignListFragment extends Fragment {
             mTitleTextView = (TextView) itemView.findViewById(R.id.assign_title);
             mTimeTextView = (TextView) itemView.findViewById(R.id.assignment_time);
             mDateTextView = (TextView) itemView.findViewById(R.id.assign_date);
-            mCompletedImageView = (ImageView) itemView.findViewById(R.id.assign_completed);
+            mMoodImageView = (ImageView) itemView.findViewById(R.id.mood_image);
         }
 
         public void bind(Assign assign) {
             mAssign = assign;
             mTitleTextView.setText(mAssign.getTitle());
-            mTimeTextView.setText("here is text");
-            mDateTextView.setText(DateFormat.format("EEEE, MMM dd, yyyy", mAssign.getDate()).toString());;
-            mCompletedImageView.setVisibility(assign.isCompleted() ? View.VISIBLE : View.GONE);
+            mTimeTextView.setText("activities...");
+            mDateTextView.setText(DateFormat.format("EEEE, MMM dd, yyyy", mAssign.getDate()).toString());
+            if (assign.getMood() != 0) {
+                if (assign.getMood() == 1)
+                    mMoodImageView.setImageResource(R.drawable.face1);
+                else if(assign.getMood() == 2)
+                    mMoodImageView.setImageResource(R.drawable.face2);
+                else if(assign.getMood() == 3)
+                    mMoodImageView.setImageResource(R.drawable.face3);
+                else if(assign.getMood() == 4)
+                    mMoodImageView.setImageResource(R.drawable.face4);
+                else if(assign.getMood() == 5)
+                    mMoodImageView.setImageResource(R.drawable.face5);
+            }
         }
 
         @Override

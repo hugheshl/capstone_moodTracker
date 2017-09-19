@@ -20,9 +20,8 @@ public class AssignBaseHelper extends SQLiteOpenHelper {
                 AssignTable.Cols.UUID + ", " +
                 AssignTable.Cols.TITLE + ", " +
                 AssignTable.Cols.DATE + ", " +
-                AssignTable.Cols.COMPLETED + ", " +
-                AssignTable.Cols.TOTALTIME + ", " +
-                AssignTable.Cols.LOGS +
+                AssignTable.Cols.LOGS + ", " +
+                AssignTable.Cols.MOOD +
                 ")"
         );
     }

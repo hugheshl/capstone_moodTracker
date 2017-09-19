@@ -8,9 +8,8 @@ public class AssignDbSchema {
             public static final String UUID = "uuid";
             public static final String TITLE = "title";
             public static final String DATE = "Date";
-            public static final String COMPLETED = "completed";
-            public static final String TOTALTIME = "totalTime";
             public static final String LOGS = "logs";
+            public static final String MOOD = "mood";
         }
     }
 }
