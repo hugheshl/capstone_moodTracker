@@ -32,12 +32,15 @@ public class AssignListFragment extends Fragment {
         setHasOptionsMenu(true);
 
         // ******************************* Dummy Data for Demonstration *****************************
+
         for(int i = 0; i < 14; i++) {
             Assign assign = new Assign();
             assign.setTitle("Today was strange... No. " + i);
-                assign.setMood(1);
+            assign.setMood(1);
+            assign.setLogs("101010101010101");
             AssignLab.get(getActivity()).addAssign(assign);
         }
+
         // ******************************* Dummy Data for Demonstration *****************************
     }
 
@@ -94,6 +97,7 @@ public class AssignListFragment extends Fragment {
             case R.id.new_assign:
                 Assign assign = new Assign();
                 AssignLab.get(getActivity()).addAssign(assign);
+                //assign.setLogs("101010101010101");
                 Intent intent = AssignPagerActivity.newIntent(getActivity(), assign.getId());
                 startActivity(intent);
                 return true;
@@ -141,7 +145,10 @@ public class AssignListFragment extends Fragment {
         public void bind(Assign assign) {
             mAssign = assign;
             mTitleTextView.setText(mAssign.getTitle());
+
+
             mTimeTextView.setText("activities...");
+
             mDateTextView.setText(DateFormat.format("EEEE, MMM dd, yyyy", mAssign.getDate()).toString());
             if (assign.getMood() != 0) {
                 if (assign.getMood() == 1)

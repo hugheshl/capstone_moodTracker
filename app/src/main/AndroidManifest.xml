@@ -18,9 +18,6 @@
         <activity android:name=".AssignPagerActivity"
             android:parentActivityName=".AssignListActivity">
         </activity>
-        <activity android:name=".LogActivity"
-                  android:parentActivityName=".AssignPagerActivity">
-        </activity>
         <activity android:name=".SettingsActivity"
                   android:parentActivityName=".AssignPagerActivity">
         </activity>

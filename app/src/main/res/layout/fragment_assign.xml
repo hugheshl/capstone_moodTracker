@@ -4,7 +4,9 @@
               android:layout_height="match_parent"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_margin="16dp"
-              android:orientation="vertical">
+              android:orientation="vertical"
+              android:descendantFocusability="beforeDescendants"
+              android:focusableInTouchMode="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,57 +52,164 @@
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:layout_weight="1"
-            android:src="@drawable/face1"/>
+            android:src="@drawable/face1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
 
         <ImageView
             android:id="@+id/imageViewFace2"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:layout_weight="1"
-            android:src="@drawable/face2"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            android:src="@drawable/face2"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
 
         <ImageView
             android:id="@+id/imageViewFace3"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:layout_weight="1"
-            android:src="@drawable/face3"/>
-    </LinearLayout>
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  xmlns:app="http://schemas.android.com/apk/res-auto"
-                  android:orientation="horizontal">
+            android:src="@drawable/face3"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
 
         <ImageView
             android:id="@+id/imageViewFace4"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:layout_weight="1"
-            android:src="@drawable/face4"/>
+            android:src="@drawable/face4"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
 
         <ImageView
             android:id="@+id/imageViewFace5"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:layout_weight="1.02"
-            android:src="@drawable/face5"/>
+            android:src="@drawable/face5"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
 
     </LinearLayout>
 
-            <Button
-                android:id="@+id/log_button"
+    <TextView
+        style="?android:listSeparatorTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="What have you been up to?"/>
+
+    <ScrollView
+        android:id="@+id/SCROLLER_ID"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fillViewport="false"
+        android:scrollbars="vertical"
+        android:visibility="visible"
+        android:layout_marginBottom="15sp"
+        android:layout_marginRight="5dp">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:layout_margin="5dp"
+                      android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/checkBox1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"/>
+                android:text="Working"/>
 
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Relaxing"/>
 
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hanging out with friends"/>
+
+            <CheckBox
+                android:id="@+id/checkBox4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Date"/>
+
+            <CheckBox
+                android:id="@+id/checkBox5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sports"/>
+
+            <CheckBox
+                android:id="@+id/checkBox6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Partying"/>
+
+            <CheckBox
+                android:id="@+id/checkBox7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Watching TV"/>
+
+            <CheckBox
+                android:id="@+id/checkBox8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reading"/>
+
+            <CheckBox
+                android:id="@+id/checkBox9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gaming"/>
+
+            <CheckBox
+                android:id="@+id/checkBox10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Shopping"/>
+
+            <CheckBox
+                android:id="@+id/checkBox11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Travel"/>
+
+            <CheckBox
+                android:id="@+id/checkBox12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Good meal"/>
+
+            <CheckBox
+                android:id="@+id/checkBox13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Cleaning"/>
+
+            <CheckBox
+                android:id="@+id/checkBox14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Napping"/>
+
+            <CheckBox
+                android:id="@+id/checkBox15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Homework"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
