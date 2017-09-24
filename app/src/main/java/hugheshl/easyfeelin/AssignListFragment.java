@@ -32,7 +32,7 @@ public class AssignListFragment extends Fragment {
         setHasOptionsMenu(true);
 
         // ******************************* Dummy Data for Demonstration *****************************
-
+/*
         for(int i = 0; i < 14; i++) {
             Assign assign = new Assign();
             assign.setTitle("Today was strange... No. " + i);
@@ -40,7 +40,7 @@ public class AssignListFragment extends Fragment {
             assign.setLogs("101010101010101");
             AssignLab.get(getActivity()).addAssign(assign);
         }
-
+*/
         // ******************************* Dummy Data for Demonstration *****************************
     }
 
@@ -97,7 +97,6 @@ public class AssignListFragment extends Fragment {
             case R.id.new_assign:
                 Assign assign = new Assign();
                 AssignLab.get(getActivity()).addAssign(assign);
-                //assign.setLogs("101010101010101");
                 Intent intent = AssignPagerActivity.newIntent(getActivity(), assign.getId());
                 startActivity(intent);
                 return true;
@@ -144,10 +143,34 @@ public class AssignListFragment extends Fragment {
 
         public void bind(Assign assign) {
             mAssign = assign;
-            mTitleTextView.setText(mAssign.getTitle());
+            //mTitleTextView.setText(mAssign.getTitle());
+            mTimeTextView.setText(mAssign.getTitle()); // moved comments to smaller grey text part
 
+            StringBuilder activities = new StringBuilder("");
+            if (mAssign.getLogs() == null) {
+                activities.append("000000000000000");
+            }
+            else {
+                activities.append(mAssign.getLogs());
+            }
+            String[] activityArray = {"Working | ", "Relaxing | ", "Hanging out with friends | ", "Date | ",
+                "Sports | ", "Partying | ", "Watching TV | ", "Reading | ", "Gaming | ", "Shopping | ", "Travel | ",
+                "Good meal | ", "Cleaning | ", "Napping | ", "Homework | "};
+            String activitiesDisplay = "";
+            for (int i = 0; i < 15; i++) {
+                if (activities.charAt(i) == '1') {
+                    activitiesDisplay = activitiesDisplay + activityArray[i];
+                }
+            }
+            if (!activitiesDisplay.equals("")) {
+                activitiesDisplay = activitiesDisplay.substring(0, activitiesDisplay.length() - 2);
+            }
+            if (activitiesDisplay.length() > 34) {
+                activitiesDisplay = activitiesDisplay.substring(0, 34) + "...";
+            }
+            //mTimeTextView.setText(activitiesDisplay);
+            mTitleTextView.setText(activitiesDisplay); // moved activities list to "title" area
 
-            mTimeTextView.setText("activities...");
 
             mDateTextView.setText(DateFormat.format("EEEE, MMM dd, yyyy", mAssign.getDate()).toString());
             if (assign.getMood() != 0) {

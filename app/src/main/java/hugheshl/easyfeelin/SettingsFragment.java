@@ -20,6 +20,7 @@ public class SettingsFragment extends DialogFragment {
     private EditText timerLength;
     private int timerLengthSetting;
     private Button changeRingtoneButton;
+    private TextView credits;
 
     public static SettingsFragment newInstance() {
         SettingsFragment settingsfragment = new SettingsFragment();

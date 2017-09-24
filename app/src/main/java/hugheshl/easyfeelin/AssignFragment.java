@@ -147,56 +147,95 @@ public class AssignFragment extends Fragment {
         });
 
         face1ImageView = (ImageView) v.findViewById(R.id.imageViewFace1);
+        face2ImageView = (ImageView) v.findViewById(R.id.imageViewFace2);
+        face3ImageView = (ImageView) v.findViewById(R.id.imageViewFace3);
+        face4ImageView = (ImageView) v.findViewById(R.id.imageViewFace4);
+        face5ImageView = (ImageView) v.findViewById(R.id.imageViewFace5);
+
+        if(mAssign.getMood() == 1) {
+            face1ImageView.setImageResource(R.drawable.face1_selected);
+        }
+        else if(mAssign.getMood() == 2) {
+            face2ImageView.setImageResource(R.drawable.face2_selected);
+        }
+        else if(mAssign.getMood() == 3) {
+            face3ImageView.setImageResource(R.drawable.face3_selected);
+        }
+        else if(mAssign.getMood() == 4) {
+            face4ImageView.setImageResource(R.drawable.face4_selected);
+        }
+        else if(mAssign.getMood() == 5) {
+            face5ImageView.setImageResource(R.drawable.face5_selected);
+        }
+        else {}
+
         face1ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mAssign.setMood(1);
-                Toast toast = Toast.makeText(getActivity(), "[Placeholder] I'm Great!", Toast.LENGTH_SHORT);
-                toast.show();
+                face1ImageView.setImageResource(R.drawable.face1_selected);
+                face2ImageView.setImageResource(R.drawable.face2);
+                face3ImageView.setImageResource(R.drawable.face3);
+                face4ImageView.setImageResource(R.drawable.face4);
+                face5ImageView.setImageResource(R.drawable.face5);
             }
         });
 
-        face2ImageView = (ImageView) v.findViewById(R.id.imageViewFace2);
         face2ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mAssign.setMood(2);
-                Toast toast = Toast.makeText(getActivity(), "[Placeholder] I'm Good!", Toast.LENGTH_SHORT);
-                toast.show();
+                face1ImageView.setImageResource(R.drawable.face1);
+                face2ImageView.setImageResource(R.drawable.face2_selected);
+                face3ImageView.setImageResource(R.drawable.face3);
+                face4ImageView.setImageResource(R.drawable.face4);
+                face5ImageView.setImageResource(R.drawable.face5);
             }
         });
 
-        face3ImageView = (ImageView) v.findViewById(R.id.imageViewFace3);
         face3ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mAssign.setMood(3);
-                Toast toast = Toast.makeText(getActivity(), "[Placeholder] I'm Ok", Toast.LENGTH_SHORT);
-                toast.show();
+                face1ImageView.setImageResource(R.drawable.face1);
+                face2ImageView.setImageResource(R.drawable.face2);
+                face3ImageView.setImageResource(R.drawable.face3_selected);
+                face4ImageView.setImageResource(R.drawable.face4);
+                face5ImageView.setImageResource(R.drawable.face5);
             }
         });
 
-        face4ImageView = (ImageView) v.findViewById(R.id.imageViewFace4);
         face4ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mAssign.setMood(4);
-                Toast toast = Toast.makeText(getActivity(), "[Placeholder] I'm not good.", Toast.LENGTH_SHORT);
-                toast.show();
+                face1ImageView.setImageResource(R.drawable.face1);
+                face2ImageView.setImageResource(R.drawable.face2);
+                face3ImageView.setImageResource(R.drawable.face3);
+                face4ImageView.setImageResource(R.drawable.face4_selected);
+                face5ImageView.setImageResource(R.drawable.face5);
             }
         });
 
-        face5ImageView = (ImageView) v.findViewById(R.id.imageViewFace5);
         face5ImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mAssign.setMood(5);
-                Toast toast = Toast.makeText(getActivity(), "[Placeholder] Everything is horrible!", Toast.LENGTH_SHORT);
-                toast.show();
+                face1ImageView.setImageResource(R.drawable.face1);
+                face2ImageView.setImageResource(R.drawable.face2);
+                face3ImageView.setImageResource(R.drawable.face3);
+                face4ImageView.setImageResource(R.drawable.face4);
+                face5ImageView.setImageResource(R.drawable.face5_selected);
             }
         });
 
-        activityString.append(mAssign.getLogs());
+        if (mAssign.getLogs() == null) {
+            activityString.append("000000000000000");
+        }
+        else {
+            activityString.delete(0, 15);
+            activityString.append(mAssign.getLogs());
+        }
 
         mCheckBox1 = (CheckBox) v.findViewById(R.id.checkBox1);
         mCheckBox1.setChecked(activityString.charAt(0) == '1');
@@ -210,8 +249,6 @@ public class AssignFragment extends Fragment {
                     activityString.setCharAt(0, '0');
                     mAssign.setLogs(activityString.toString());
                 }
-                Toast toast = Toast.makeText(getActivity(), mAssign.getLogs(), Toast.LENGTH_SHORT);
-                toast.show();
             }
         });
 
@@ -227,8 +264,6 @@ public class AssignFragment extends Fragment {
                     activityString.setCharAt(1, '0');
                     mAssign.setLogs(activityString.toString());
                 }
-                Toast toast = Toast.makeText(getActivity(), mAssign.getLogs(), Toast.LENGTH_SHORT);
-                toast.show();
             }
         });
 
@@ -244,8 +279,6 @@ public class AssignFragment extends Fragment {
                     activityString.setCharAt(2, '0');
                     mAssign.setLogs(activityString.toString());
                 }
-                Toast toast = Toast.makeText(getActivity(), mAssign.getLogs(), Toast.LENGTH_SHORT);
-                toast.show();
             }
         });
 
@@ -261,13 +294,11 @@ public class AssignFragment extends Fragment {
                     activityString.setCharAt(3, '0');
                     mAssign.setLogs(activityString.toString());
                 }
-                Toast toast = Toast.makeText(getActivity(), mAssign.getLogs(), Toast.LENGTH_SHORT);
-                toast.show();
             }
         });
 
         mCheckBox5 = (CheckBox) v.findViewById(R.id.checkBox5);
-        mCheckBox5.setChecked(activityString.charAt(4) == '1');
+        mCheckBox5.setChecked(activityString.charAt(4) == '1'); // STRING INDEX OUT OF BOUNDS ******* when make new entry only
         mCheckBox5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -278,8 +309,6 @@ public class AssignFragment extends Fragment {
                     activityString.setCharAt(4, '0');
                     mAssign.setLogs(activityString.toString());
                 }
-                Toast toast = Toast.makeText(getActivity(), mAssign.getLogs(), Toast.LENGTH_SHORT);
-                toast.show();
             }
         });
 
@@ -295,8 +324,6 @@ public class AssignFragment extends Fragment {
                     activityString.setCharAt(5, '0');
                     mAssign.setLogs(activityString.toString());
                 }
-                Toast toast = Toast.makeText(getActivity(), mAssign.getLogs(), Toast.LENGTH_SHORT);
-                toast.show();
             }
         });
 
@@ -312,8 +339,6 @@ public class AssignFragment extends Fragment {
                     activityString.setCharAt(6, '0');
                     mAssign.setLogs(activityString.toString());
                 }
-                Toast toast = Toast.makeText(getActivity(), mAssign.getLogs(), Toast.LENGTH_SHORT);
-                toast.show();
             }
         });
 
@@ -329,8 +354,6 @@ public class AssignFragment extends Fragment {
                     activityString.setCharAt(7, '0');
                     mAssign.setLogs(activityString.toString());
                 }
-                Toast toast = Toast.makeText(getActivity(), mAssign.getLogs(), Toast.LENGTH_SHORT);
-                toast.show();
             }
         });
 
@@ -346,8 +369,6 @@ public class AssignFragment extends Fragment {
                     activityString.setCharAt(8, '0');
                     mAssign.setLogs(activityString.toString());
                 }
-                Toast toast = Toast.makeText(getActivity(), mAssign.getLogs(), Toast.LENGTH_SHORT);
-                toast.show();
             }
         });
 
@@ -363,8 +384,6 @@ public class AssignFragment extends Fragment {
                     activityString.setCharAt(9, '0');
                     mAssign.setLogs(activityString.toString());
                 }
-                Toast toast = Toast.makeText(getActivity(), mAssign.getLogs(), Toast.LENGTH_SHORT);
-                toast.show();
             }
         });
 
@@ -380,8 +399,6 @@ public class AssignFragment extends Fragment {
                     activityString.setCharAt(10, '0');
                     mAssign.setLogs(activityString.toString());
                 }
-                Toast toast = Toast.makeText(getActivity(), mAssign.getLogs(), Toast.LENGTH_SHORT);
-                toast.show();
             }
         });
 
@@ -397,8 +414,6 @@ public class AssignFragment extends Fragment {
                     activityString.setCharAt(11, '0');
                     mAssign.setLogs(activityString.toString());
                 }
-                Toast toast = Toast.makeText(getActivity(), mAssign.getLogs(), Toast.LENGTH_SHORT);
-                toast.show();
             }
         });
 
@@ -414,8 +429,6 @@ public class AssignFragment extends Fragment {
                     activityString.setCharAt(12, '0');
                     mAssign.setLogs(activityString.toString());
                 }
-                Toast toast = Toast.makeText(getActivity(), mAssign.getLogs(), Toast.LENGTH_SHORT);
-                toast.show();
             }
         });
 
@@ -431,8 +444,6 @@ public class AssignFragment extends Fragment {
                     activityString.setCharAt(13, '0');
                     mAssign.setLogs(activityString.toString());
                 }
-                Toast toast = Toast.makeText(getActivity(), mAssign.getLogs(), Toast.LENGTH_SHORT);
-                toast.show();
             }
         });
 
@@ -448,8 +459,6 @@ public class AssignFragment extends Fragment {
                     activityString.setCharAt(14, '0');
                     mAssign.setLogs(activityString.toString());
                 }
-                Toast toast = Toast.makeText(getActivity(), mAssign.getLogs(), Toast.LENGTH_SHORT);
-                toast.show();
             }
         });
 
