@@ -104,6 +104,10 @@ public class AssignListFragment extends Fragment {
                 Intent intent2 = SettingsActivity.newIntent(getActivity(), null);
                 startActivity(intent2);
                 return true;
+            case R.id.calendar:
+                Intent intent3 = CalendarActivity.newIntent(getActivity(), null);
+                startActivity(intent3);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

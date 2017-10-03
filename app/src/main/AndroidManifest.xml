@@ -21,5 +21,8 @@
         <activity android:name=".SettingsActivity"
                   android:parentActivityName=".AssignPagerActivity">
         </activity>
+        <activity android:name=".CalendarActivity"
+                  android:parentActivityName=".AssignPagerActivity">
+        </activity>
     </application>
 </manifest>
