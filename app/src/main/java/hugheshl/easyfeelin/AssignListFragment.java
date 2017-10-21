@@ -100,13 +100,17 @@ public class AssignListFragment extends Fragment {
                 Intent intent = AssignPagerActivity.newIntent(getActivity(), assign.getId());
                 startActivity(intent);
                 return true;
-            case R.id.settings:
-                Intent intent2 = SettingsActivity.newIntent(getActivity(), null);
+            case R.id.calendar:
+                Intent intent2 = CalendarActivity.newIntent(getActivity(), null);
                 startActivity(intent2);
                 return true;
-            case R.id.calendar:
-                Intent intent3 = CalendarActivity.newIntent(getActivity(), null);
+            case R.id.chart:
+                Intent intent3 = ChartActivity.newIntent(getActivity(), null);
                 startActivity(intent3);
+                return true;
+            case R.id.settings:
+                Intent intent4 = SettingsActivity.newIntent(getActivity(), null);
+                startActivity(intent4);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
