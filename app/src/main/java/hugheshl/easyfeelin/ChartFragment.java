@@ -67,7 +67,7 @@ public class ChartFragment extends DialogFragment {
 
         DataPoint[] data = new DataPoint[assigns.size()];
         int count = 0;
-        for(Assign a : assigns) {
+        for(Assign a : assigns) { //starts at beginning of time - need to make it start with current month?
             data[count] = new DataPoint(count, a.getMood());
             count++;
         }
@@ -85,45 +85,98 @@ public class ChartFragment extends DialogFragment {
         graph.getViewport().setMinX(0);
         graph.getViewport().setMaxX(15);
 
+        graph.getViewport().setYAxisBoundsManual(true);
+        graph.getViewport().setMinY(1);
+        graph.getViewport().setMaxY(5);
+
         graph.getGridLabelRenderer().setNumHorizontalLabels(15);
+        graph.getGridLabelRenderer().setNumVerticalLabels(5);
         graph.getGridLabelRenderer().setVerticalAxisTitle("Mood");
         graph.getGridLabelRenderer().setHorizontalAxisTitle("2 Week Window");
         graph.getGridLabelRenderer().setHorizontalLabelsAngle(20);
 
-        //----------------------------------------------------------------------
-        //another set of data points to color code the graph (i.e. green dot in the chart for a great day)
-        DataPoint[] data_1 = new DataPoint[assigns.size()];
+        //TO_DO: use dates as labels
+
+        //Inefficient workaround that allows for each data point to be a different color:
+        // TO_DO: FIX COLORS
         int count2 = 0;
         for(Assign a : assigns) {
             if(a.getMood() == 1) {
-                data_1[count2] = new DataPoint(count2, a.getMood());
+                DataPoint[] data2 = new DataPoint[1];
+                data2[0] = new DataPoint(count2, a.getMood());
+                PointsGraphSeries<DataPoint> series1 = new PointsGraphSeries<>(data2);
+                series1.setShape(PointsGraphSeries.Shape.POINT);
+                series1.setColor(Color.GREEN);
+                series.setDataPointsRadius(12);
+                graph.addSeries(series1);
+                count2++;
+            }
+            else if(a.getMood() == 2) {
+                DataPoint[] data2 = new DataPoint[1];
+                data2[0] = new DataPoint(count2, a.getMood());
+                PointsGraphSeries<DataPoint> series1 = new PointsGraphSeries<>(data2);
+                series1.setShape(PointsGraphSeries.Shape.POINT);
+                series1.setColor(Color.MAGENTA);
+                series.setDataPointsRadius(12);
+                graph.addSeries(series1);
+                count2++;
+            }
+            else if(a.getMood() == 3) {
+                DataPoint[] data2 = new DataPoint[1];
+                data2[0] = new DataPoint(count2, a.getMood());
+                PointsGraphSeries<DataPoint> series1 = new PointsGraphSeries<>(data2);
+                series1.setShape(PointsGraphSeries.Shape.POINT);
+                series1.setColor(Color.BLUE);
+                series.setDataPointsRadius(12);
+                graph.addSeries(series1);
+                count2++;
+            }
+            else if(a.getMood() == 4) {
+                DataPoint[] data2 = new DataPoint[1];
+                data2[0] = new DataPoint(count2, a.getMood());
+                PointsGraphSeries<DataPoint> series1 = new PointsGraphSeries<>(data2);
+                series1.setShape(PointsGraphSeries.Shape.POINT);
+                series1.setColor(Color.RED);
+                series.setDataPointsRadius(12);
+                graph.addSeries(series1);
+                count2++;
+            }
+            else if(a.getMood() == 5) {
+                DataPoint[] data2 = new DataPoint[1];
+                data2[0] = new DataPoint(count2, a.getMood());
+                PointsGraphSeries<DataPoint> series1 = new PointsGraphSeries<>(data2);
+                series1.setShape(PointsGraphSeries.Shape.POINT);
+                series1.setColor(Color.BLACK);
+                series.setDataPointsRadius(12);
+                graph.addSeries(series1);
                 count2++;
             }
         }
-        PointsGraphSeries<DataPoint> series2 = new PointsGraphSeries<>(data_1);
-        //graph.addSeries(series2);                                                  //ERROR
-        series2.setShape(PointsGraphSeries.Shape.POINT);
-        series2.setColor(Color.GREEN);
-        //----------------------------------------------------------------------
 
         //Correlate activities to mood or vice versa - below line graph
-        String[] activityArray = {"Working | ", "Relaxing | ", "Hanging out with friends | ", "Date | ",
-                "Sports | ", "Partying | ", "Watching TV | ", "Reading | ", "Gaming | ", "Shopping | ", "Travel | ",
-                "Good meal | ", "Cleaning | ", "Napping | ", "Homework | "};
+        String[] activityArray = {"Working", "Relaxing", "Hanging out with friends", "Date",
+                "Sports", "Partying", "Watching TV", "Reading", "Gaming", "Shopping", "Travel",
+                "Good meal", "Cleaning", "Napping", "Homework"};
         String top1 = "";
 
-        int[] greatMoodActivities = new int[14];
+        int[] greatMoodActivities = new int[14]; //array to keep total count of great mood entries for each activity
         for(Assign a : assigns) {
+            StringBuilder activities = new StringBuilder("");
             if(a.getMood() == 1) {
+                if (a.getLogs() == null) {
+                    activities.append("000000000000000");
+                }
+                else {
+                    activities.append(a.getLogs());
+                }
                 //parse activity string data - put into array and keep count of great days for each activity
-                String activities = a.getLogs();
-                char[] actArray = new char[14];
-                activities.getChars(0, 13, actArray, 0); // NULL POINTER EXCEPTION
+                char[] actArray = new char[15]; //activity array for individual entry
+                /*activities.getChars(0, 14, actArray, 0);                                              // NULL POINTER EXCEPTION
                 for(int i = 0; i < actArray.length; i++) {
                     if(actArray[i] == '1') {
                         greatMoodActivities[i]++;
                     }
-                }
+                }*/
             }
         }
         int max = 0;
