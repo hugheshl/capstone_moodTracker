@@ -159,7 +159,7 @@ public class ChartFragment extends DialogFragment {
                 "Good meal", "Cleaning", "Napping", "Homework"};
         String top1 = "";
 
-        int[] greatMoodActivities = new int[14]; //array to keep total count of great mood entries for each activity
+        int[] greatMoodActivities = new int[15]; //array to keep total count of great mood entries for each activity
         for(Assign a : assigns) {
             StringBuilder activities = new StringBuilder("");
             if(a.getMood() == 1) {
@@ -171,16 +171,16 @@ public class ChartFragment extends DialogFragment {
                 }
                 //parse activity string data - put into array and keep count of great days for each activity
                 char[] actArray = new char[15]; //activity array for individual entry
-                /*activities.getChars(0, 14, actArray, 0);                                              // NULL POINTER EXCEPTION
+                activities.getChars(0, 14, actArray, 0);
                 for(int i = 0; i < actArray.length; i++) {
                     if(actArray[i] == '1') {
                         greatMoodActivities[i]++;
                     }
-                }*/
+                }
             }
         }
         int max = 0;
-        for (int i = 0; i < greatMoodActivities.length; i++) {
+        for (int i = 0; i < greatMoodActivities.length; i++) { //find top correlated activity by finding max count
             if (greatMoodActivities[i] > max) {
                 max = i;
             }
