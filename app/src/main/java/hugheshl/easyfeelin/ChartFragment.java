@@ -21,15 +21,20 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.DataPointInterface;
 import com.jjoe64.graphview.series.LineGraphSeries;
+import com.jjoe64.graphview.series.OnDataPointTapListener;
 import com.jjoe64.graphview.series.PointsGraphSeries;
+import com.jjoe64.graphview.series.Series;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -44,6 +49,9 @@ public class ChartFragment extends DialogFragment {
 
     public static final String EXTRA_DATE = "hugheshl.turniptimer2.date";
     private static final String ARG_DATE = "date";
+    private Assign assign;
+    String dateText = "";
+    SimpleDateFormat df;
 
     private TextView mTextView;
     private TextView mCorrelationsGreat;
@@ -139,7 +147,7 @@ public class ChartFragment extends DialogFragment {
         graph.getGridLabelRenderer().setVerticalAxisTitle("Mood");
         graph.getGridLabelRenderer().setHorizontalAxisTitle("Time");
         graph.getGridLabelRenderer().setVerticalLabelsVisible(false);
-        //graph.getGridLabelRenderer().setHorizontalLabelsAngle(20);
+        graph.getGridLabelRenderer().setHorizontalLabelsVisible(false);
 
         graph.getGridLabelRenderer().setGridStyle(GridLabelRenderer.GridStyle.NONE);
         graph.getViewport().setDrawBorder(true);
@@ -148,6 +156,7 @@ public class ChartFragment extends DialogFragment {
 
         //Inefficient workaround that allows for each data point to be a different color:
         int count2 = 0;
+
         for(Assign a : assigns) {
             if(a.getMood() == 1) {
                 DataPoint[] data2 = new DataPoint[1];
@@ -158,6 +167,15 @@ public class ChartFragment extends DialogFragment {
                 series.setDataPointsRadius(12);
                 graph.addSeries(series1);
                 count2++;
+                assign = a;
+                series.setOnDataPointTapListener(new OnDataPointTapListener() {
+                    @Override
+                    public void onTap(Series series, DataPointInterface dataPoint) {
+                        df = new SimpleDateFormat("EEE, dd MMM yyyy");
+                        dateText = df.format(assign.getDate());
+                        Toast.makeText(getActivity(), "" + dateText, Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
             else if(a.getMood() == 2) {
                 DataPoint[] data2 = new DataPoint[1];
@@ -168,6 +186,15 @@ public class ChartFragment extends DialogFragment {
                 series.setDataPointsRadius(12);
                 graph.addSeries(series1);
                 count2++;
+                assign = a;
+                series.setOnDataPointTapListener(new OnDataPointTapListener() {
+                    @Override
+                    public void onTap(Series series, DataPointInterface dataPoint) {
+                        df = new SimpleDateFormat("EEE, dd MMM yyyy");
+                        dateText = df.format(assign.getDate());
+                        Toast.makeText(getActivity(), "" + dateText, Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
             else if(a.getMood() == 3) {
                 DataPoint[] data2 = new DataPoint[1];
@@ -178,6 +205,15 @@ public class ChartFragment extends DialogFragment {
                 series.setDataPointsRadius(12);
                 graph.addSeries(series1);
                 count2++;
+                assign = a;
+                series.setOnDataPointTapListener(new OnDataPointTapListener() {
+                    @Override
+                    public void onTap(Series series, DataPointInterface dataPoint) {
+                        df = new SimpleDateFormat("EEE, dd MMM yyyy");
+                        dateText = df.format(assign.getDate());
+                        Toast.makeText(getActivity(), "" + dateText, Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
             else if(a.getMood() == 4) {
                 DataPoint[] data2 = new DataPoint[1];
@@ -188,6 +224,15 @@ public class ChartFragment extends DialogFragment {
                 series.setDataPointsRadius(12);
                 graph.addSeries(series1);
                 count2++;
+                assign = a;
+                series.setOnDataPointTapListener(new OnDataPointTapListener() {
+                    @Override
+                    public void onTap(Series series, DataPointInterface dataPoint) {
+                        df = new SimpleDateFormat("EEE, dd MMM yyyy");
+                        dateText = df.format(assign.getDate());
+                        Toast.makeText(getActivity(), "" + dateText, Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
             else if(a.getMood() == 5) {
                 DataPoint[] data2 = new DataPoint[1];
@@ -198,6 +243,16 @@ public class ChartFragment extends DialogFragment {
                 series.setDataPointsRadius(12);
                 graph.addSeries(series1);
                 count2++;
+                assign = a;
+                series.setOnDataPointTapListener(new OnDataPointTapListener() {
+                    @Override
+                    public void onTap(Series series, DataPointInterface dataPoint) {
+                        //df = new SimpleDateFormat("EEE, dd MMM yyyy");
+                        //dateText = df.format(assign.getDate());
+                        //Toast.makeText(getActivity(), "" + dateText, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "" + assign.getDate(), Toast.LENGTH_SHORT).show(); //date-on-click has bug
+                    }
+                });
             }
         }
 
@@ -287,14 +342,6 @@ public class ChartFragment extends DialogFragment {
             mCorrelationsHorrible.setText("No entries yet!");
 
         //---------------------------------------------------------------------------------------------------------------------
-        /*make empty array size 15, one index for each activity.
-            make empty 2D array size 15 x 2 -> 2nd column is for adding total points, first column is for keeping count of times
-            activity was entered
-
-        for each mood entry a, take log array and if char is a 1, add convertMood(a.getMood) to 2d array at [log index][2]
-
-        then loop through each activity, taking 2nd column total / first column count to get avg.
-        */
 
         mActivityAvgList0 = (TextView) view.findViewById(R.id.activityAvg0);
         mActivityAvgList1 = (TextView) view.findViewById(R.id.activityAvg1);
