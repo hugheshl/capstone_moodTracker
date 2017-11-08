@@ -15,10 +15,192 @@
         android:layout_height="255dp"
         android:id="@+id/graph" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"/>
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageViewFace1"
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:src="@drawable/face1"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/textViewGreatTitle"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="@color/colorDarkGreen"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewGreat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageViewFace5"
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:src="@drawable/face5"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/textViewHorribleTitle"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_red_dark"/>
+
+        </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewHorrible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/textViewAllAvgsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Average Mood for each Activity:"
+        style="?android:listSeparatorTextViewStyle"
+        android:layout_marginTop="5dp"/>
+
+    <ScrollView
+        android:id="@+id/SCROLLER_ID"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fillViewport="false"
+        android:scrollbars="vertical"
+        android:visibility="visible"
+        android:layout_marginBottom="15sp"
+        android:layout_marginRight="5dp">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:layout_margin="5dp"
+                      android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/activityAvg0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"/>
+
+            <TextView
+                android:id="@+id/activityAvg1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"/>
+
+            <TextView
+                android:id="@+id/activityAvg2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"/>
+
+            <TextView
+                android:id="@+id/activityAvg3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"/>
+
+            <TextView
+                android:id="@+id/activityAvg4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"/>
+
+            <TextView
+                android:id="@+id/activityAvg5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"/>
+
+            <TextView
+                android:id="@+id/activityAvg6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"/>
+
+            <TextView
+                android:id="@+id/activityAvg7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"/>
+
+            <TextView
+                android:id="@+id/activityAvg8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"/>
+
+            <TextView
+                android:id="@+id/activityAvg9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"/>
+
+            <TextView
+                android:id="@+id/activityAvg10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"/>
+
+            <TextView
+                android:id="@+id/activityAvg11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"/>
+
+            <TextView
+                android:id="@+id/activityAvg12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"/>
+
+            <TextView
+                android:id="@+id/activityAvg13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"/>
+
+            <TextView
+                android:id="@+id/activityAvg14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
