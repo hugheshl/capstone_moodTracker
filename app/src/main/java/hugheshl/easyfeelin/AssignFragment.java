@@ -3,6 +3,7 @@ package hugheshl.easyfeelin;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.Ringtone;
@@ -47,6 +48,10 @@ public class AssignFragment extends Fragment {
 
     private static final String ARG_ASSIGN_ID = "assign_id";
     private static final String DIALOG_DATE = "DialogDate";
+
+    PendingIntent pendingIntent;
+    AlarmManager alarmManager;
+    BroadcastReceiver mReceiver;
 
     private static final int REQUEST_DATE = 0;
 

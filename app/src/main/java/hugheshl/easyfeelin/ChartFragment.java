@@ -132,6 +132,13 @@ public class ChartFragment extends DialogFragment {
         series.setDrawBackground(false);
         series.setColor(rgb(160, 160, 160));
 
+        series.setOnDataPointTapListener(new OnDataPointTapListener() {
+            @Override
+            public void onTap(Series series, DataPointInterface dataPoint) {
+                Toast.makeText(getActivity(), "Placeholder for entry date", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         graph.getViewport().setScalable(true);
         graph.getViewport().setScrollable(true);
         graph.getViewport().setXAxisBoundsManual(true);
@@ -168,14 +175,14 @@ public class ChartFragment extends DialogFragment {
                 graph.addSeries(series1);
                 count2++;
                 assign = a;
-                series.setOnDataPointTapListener(new OnDataPointTapListener() {
+                /*series.setOnDataPointTapListener(new OnDataPointTapListener() {
                     @Override
                     public void onTap(Series series, DataPointInterface dataPoint) {
                         df = new SimpleDateFormat("EEE, dd MMM yyyy");
                         dateText = df.format(assign.getDate());
                         Toast.makeText(getActivity(), "" + dateText, Toast.LENGTH_SHORT).show();
                     }
-                });
+                });*/
             }
             else if(a.getMood() == 2) {
                 DataPoint[] data2 = new DataPoint[1];
@@ -187,14 +194,14 @@ public class ChartFragment extends DialogFragment {
                 graph.addSeries(series1);
                 count2++;
                 assign = a;
-                series.setOnDataPointTapListener(new OnDataPointTapListener() {
+                /*series.setOnDataPointTapListener(new OnDataPointTapListener() {
                     @Override
                     public void onTap(Series series, DataPointInterface dataPoint) {
                         df = new SimpleDateFormat("EEE, dd MMM yyyy");
                         dateText = df.format(assign.getDate());
                         Toast.makeText(getActivity(), "" + dateText, Toast.LENGTH_SHORT).show();
                     }
-                });
+                });*/
             }
             else if(a.getMood() == 3) {
                 DataPoint[] data2 = new DataPoint[1];
@@ -206,14 +213,14 @@ public class ChartFragment extends DialogFragment {
                 graph.addSeries(series1);
                 count2++;
                 assign = a;
-                series.setOnDataPointTapListener(new OnDataPointTapListener() {
+                /*series.setOnDataPointTapListener(new OnDataPointTapListener() {
                     @Override
                     public void onTap(Series series, DataPointInterface dataPoint) {
                         df = new SimpleDateFormat("EEE, dd MMM yyyy");
                         dateText = df.format(assign.getDate());
                         Toast.makeText(getActivity(), "" + dateText, Toast.LENGTH_SHORT).show();
                     }
-                });
+                });*/
             }
             else if(a.getMood() == 4) {
                 DataPoint[] data2 = new DataPoint[1];
@@ -225,14 +232,14 @@ public class ChartFragment extends DialogFragment {
                 graph.addSeries(series1);
                 count2++;
                 assign = a;
-                series.setOnDataPointTapListener(new OnDataPointTapListener() {
+                /*series.setOnDataPointTapListener(new OnDataPointTapListener() {
                     @Override
                     public void onTap(Series series, DataPointInterface dataPoint) {
                         df = new SimpleDateFormat("EEE, dd MMM yyyy");
                         dateText = df.format(assign.getDate());
                         Toast.makeText(getActivity(), "" + dateText, Toast.LENGTH_SHORT).show();
                     }
-                });
+                });*/
             }
             else if(a.getMood() == 5) {
                 DataPoint[] data2 = new DataPoint[1];
@@ -244,7 +251,7 @@ public class ChartFragment extends DialogFragment {
                 graph.addSeries(series1);
                 count2++;
                 assign = a;
-                series.setOnDataPointTapListener(new OnDataPointTapListener() {
+                /*series.setOnDataPointTapListener(new OnDataPointTapListener() {
                     @Override
                     public void onTap(Series series, DataPointInterface dataPoint) {
                         //df = new SimpleDateFormat("EEE, dd MMM yyyy");
@@ -252,7 +259,7 @@ public class ChartFragment extends DialogFragment {
                         //Toast.makeText(getActivity(), "" + dateText, Toast.LENGTH_SHORT).show();
                         Toast.makeText(getActivity(), "" + assign.getDate(), Toast.LENGTH_SHORT).show(); //date-on-click has bug
                     }
-                });
+                });*/
             }
         }
 
